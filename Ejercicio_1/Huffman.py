@@ -18,3 +18,15 @@ class Nodo ():
    probabilidad = 0.0
    simbolo = ""
    codificacion = ""
+
+#Creamos nuestra clase Arbol de Huffman
+class ArbolHuffman():
+   def __init__(self, Arbol= None, Raiz=None, Nodos = [], Probabilidades={}, diccionarioCodificacion={}):
+        self.Arbol = Arbol
+        self.Raiz = Raiz
+        self.Nodos = Nodos
+        self.Probabilidades = Probabilidades
+        self.diccionarioCodificacion = diccionarioCodificacion
+       
+     
+    
