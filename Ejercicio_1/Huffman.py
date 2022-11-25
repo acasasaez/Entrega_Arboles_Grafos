@@ -21,12 +21,20 @@ class Nodo ():
 
 #Creamos nuestra clase Arbol de Huffman
 class ArbolHuffman():
-   def __init__(self, Arbol= None, Raiz=None, Nodos = [], Probabilidades={}, diccionarioCodificacion={}):
-        self.Arbol = Arbol
+   def __init__(self, Arbol= None, Raiz=None, Nodos = [], Probabilidades={}, diccionarioCodificacion={}): #
+        self.Arbol = Arbol #Rrecordamos quel el arbol como nuestros TDA inicia siendo None, pasaremos a crearlo posteriormente 
         self.Raiz = Raiz
         self.Nodos = Nodos
-        self.Probabilidades = Probabilidades
-        self.diccionarioCodificacion = diccionarioCodificacion
+        self.Probabilidades = Probabilidades #Diccionario con simbolos y probabilidades 
+        self.diccionarioCodificacion = diccionarioCodificacion # resultado binario
        
-     
+   def inicializarNodo(self): #Inicializamos los nodos con los simbolos y probabilidades
+         for simbolo in self.Probabilidades:
+            nodo = Nodo() # Cada nodo es una instancia de la clase Nodo
+            nodo.simbolo = simbolo #Asignamos los simbolos a los nodos que serán clave o la base de nuestro aáebol ( a partir de los cueles lo iremos construyendo )
+            nodo.probabilidad = self.Probabilidades[simbolo] #Asignamos las probabilidades a los nodos
+            self.Nodos.append(nodo) #Añadimos los nodos a la lista de nodos
+            
+
     
+       
