@@ -13,7 +13,7 @@
 #                 /  \
 #              0.05  0.09 
 
-import os 
+
 # Creamos nuestra clase nodo 
 class Nodo ():
    probabilidad = 0.0
