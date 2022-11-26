@@ -104,12 +104,10 @@ class ArbolHuffman():
         #recalculamos los nodos de mínima probabilidad de nuestra lista de nodos 
 
         #Una vez que tenemos nuestro árbol procedemos a crear el diccionario que guarde el código binario de nuestros caracteres 
-   def DiccBinario(self):
-        for i in range(0, len(self.Nodos)):
-            if self.Nodos[i].simbolo != "":
-                self.DiccionarioBinario[self.Nodos[i].simbolo] = self.Nodos[i].codificacion
-        return self.DiccionarioBinario  
-
+        #Acabar de programar 
+        #Arrecglar las probabilidades de los nodos
+#
+#Hacer menu, poner bonito
 dic = {"A": 0.2, 
         "F": 0.17,
           "1": 0.13, 
@@ -120,4 +118,3 @@ dic = {"A": 0.2,
 arbol = ArbolHuffman(dic)
 arbol.inicializarNodo()
 arbol.CrearArbol()
-arbol.diccionarioCodificacion()
