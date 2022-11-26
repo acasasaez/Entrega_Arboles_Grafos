@@ -61,8 +61,8 @@ class ArbolHuffman():
         nodo = Nodo () #Creamos un nuevo nodo que será el nodo padre
         nodo.simbolo = ""
         nodo.codificacion = ""
-        prob1 = self.Nodes[min1].probabilidad
-        prob2 = self.Nodes[min2].probabilidad
+        prob1 = self.Nodos[min1].probabilidad
+        prob2 = self.Nodos[min2].probabilidad
         nodo.probabilidad =prob1 + prob2 #Por ello su probabilidad será la suma de las probabilidades de sus hijos
         nodo.a = False
         self.Nodos.append(nodo) #Añadimos el nodo a la lista de nodos
@@ -73,10 +73,24 @@ class ArbolHuffman():
         else:
             self.Nodos[min1].encoding = "1"
             self.Nodos[min2].encoding = "0"
+            print ("Nodo padre: ", nodo.probabilidad) 
+            print ("Nodo hijo izquierdo: ", self.Nodos[min1].probabilidad)
+            print ("Nodo hijo derecho: ", self.Nodos[min2].probabilidad)
         min1 = self.NododeMinimaProb()
         min2 = self.NododeMinimaProb()
     
-    #Un Arbol Huffman es un arbol binario que nos permitirá el codificacición y decodificación de mensajes a partir tablas de frecuencias. 
+dic = {"A": 0.2, 
+        "F": 0.17,
+          "1": 0.13, 
+          "3": 0.21, 
+          "0": 0.05, 
+          "M": 0.09, 
+          "T": 0.15}
+arbol = ArbolHuffman(dic)
+arbol.inicializarNodo()
+arbol.CrearArbol()
+
+    #Un Arbol Huffman es un arbol binario que nos permitirá  codificacición y decodificación de mensajes a partir tablas de frecuencias. 
     #Para poder crear nuestreo árbol el primer paso será crear nuestra clase nodo que será la base de nuestro árbol y que contendrán la información ( simbolo y probabilidad) de cada nodo.
     #Posteriormente creamos la clase del arbol de Huffman que trabajará de la siguiente manera:
         #En su contrusctor pasaremos por parámetro un diccionario conn los símbolos y probabilidades de nuestro problema. 
@@ -87,7 +101,13 @@ class ArbolHuffman():
         #Para ello creamos la función inicializar nodo. 
         #Con esta recorreremos el dicccionario (probabilidades) y por cada clave valor crearemos una instancia de nodo ( siendo clave su simbolo y valor su probabilidad) y lo añadiremos a nuestra lista de nodos)
 
-        #Una vez que tenemos los nodos base de nuestro árbol pasamos a crear la función que busque las menores probabilidades 
+        #Una vez que tenemos los nodos base de nuestro árbol pasamos a crear la función que busque las menores probabilidades (INTERNET)
 
         #Una vez que tenemos los nodos con menor probabilidad pasamos a crear el árbol de Huffman
+         
+
         
+        #Para esto empezamos buscando las probabbilidades mínimas de nuestro árbol y las almacenamos en las variables min1 y min2.
+        # # Hasta que no se terminen los nodos, será necesario crear nodos intermedios que nos permitan construir el árbol desde nuestras probabilidades hasta la raiz. probabilidad 1 
+        ##Añadimos nuestro nodo as la lista de nodos y codificamos los nodos hijos
+        #recalculamos los nodos de mínima probabilidad de nuestra lista de nodos 
