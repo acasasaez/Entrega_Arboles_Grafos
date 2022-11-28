@@ -35,6 +35,7 @@ class  ArbolNombre ():
             pokemon.debilidad = self.pokemons.iloc[i,4]
             self.Nodos.append(pokemon)
 
+    #Ahora creamos la función que nos permita extraer la característica que nos interesa de cada pokemon, en este caso el nombre, que emplearemos como nodo en nuestro árbol.
     def ObtenerNombre(self):
         Nombre = []
         for i in range (0, len(self.Nodos)):
@@ -55,7 +56,13 @@ class ArbolTipo():
             pokemon.tipo2 = self.pokemons.iloc[i,3]
             pokemon.debilidad = self.pokemons.iloc[i,4]
             self.Nodos.append(pokemon)
-            
+
+         #Ahora creamos la función que nos permita extraer la característica que nos interesa de cada pokemon, en este caso el nombre, que emplearemos como nodo en nuestro árbol.
+    def ObtenerNombre(self):
+        Nombre = []
+        for i in range (0, len(self.Nodos)):
+             Nombre.append(self.Nodos[i].nombre) 
+        return Nombre           
 
         
 class ArbolNumero():
@@ -73,6 +80,12 @@ class ArbolNumero():
             pokemon.debilidad = self.pokemons.iloc[i,4]
             self.Nodos.append(pokemon)
 
+        #Ahora creamos la función que nos permita extraer la característica que nos interesa de cada pokemon, en este caso el nombre, que emplearemos como nodo en nuestro árbol.
+    def ObtenerNombre(self):
+        Nombre = []
+        for i in range (0, len(self.Nodos)):
+             Nombre.append(self.Nodos[i].nombre) 
+        return Nombre
 arbol = ArbolNombre(d_pokemon)
 arbol.inicializarPokemon()
 print(arbol.ObtenerNombre())
