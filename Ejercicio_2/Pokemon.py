@@ -1,29 +1,78 @@
-#En este caso se nos ofrece un archivo csv con los datos de 700 pokemons, aproximadamente, se nos pide que creemos 3 árboles
+#En este caso se nos ofrece un archivo csv D con los datos de 700 pokemons, aproximadamente, se nos pide que creemos 3 árboles
 # A partir de sus nombres
 # A partir de sus tipos
 # A partir de sus números
-#Nos encontramos ante un problema que podemos enfrentar con un avl y un algoritmo de búsqueda binaria
-#Empezaremos creando un TDA, ya que ñas columnas que emplearemos de nuestro archivo csv las manejaremos como atributos de nuestro TDA
-class Cola ():
-    def __init__(self):
-        self.dato =[] # que son el conjunto abstracto de datos que manejamos
-        self.cabeza = 0 # aue es el numero elementos que salen de nuestra cola
-        self.cola = 0 #numero de elementos que entran a nuestra cola
-    
-    def esta_vacia(self): #resuñtado de tipo booleano. si el numero de elementos que entra en nuestra cola es igual al que sale entonces nuestra cola estarña vacía-
-        if self.cabeza == self.cola:
-            return True
-        else:
-            return False
-        
-    def añadirElemento(self, elemento): #añadimos un elemento a nuestra cola
-        self.dato.append(elemento)
-        self.cola += 1 #la variable que guarda el nuumero de elementos que entran a nuestra cola aumenta en 1 unidad
 
-    def sacarElemento(self): #sacamos un elemento de nuestra cola
-        ret = self.dato[self.cabeza]
-        self.cabeza += 1
-        return ret #retornamos el elemento que sacamos de nuestra cola
-    def tamañoCola(self):
-        return self.cola - self.cabeza 
+
+import pandas as pd 
+d_pokemon = pd.read_csv("/Users/andre/OneDrive/Escritorio/Programación/Entrega_Arboles_Grafos/Ejercicio_2/pokemon.csv", sep = ",")
+
+#Creamos nuestros pokemons que serán nuestros nodos aunque cada árbol los identificará con un atributo distinto.
+class Pokemon (): 
+    def __init__(self):
+        self.nombre = ""
+        self.numero = 0
+        self.tipo1 = None
+        self.tipo2 = None
+        self.debilidad = 0
+
+# Una vez que ya había creado ayer las tres clases árbol ahora empezamos con sus funciones. 
+# La primera, que es la inicialización de los pokemon, será igual para los tres árboles. Esta función lo que hace es atribuir las caracteristicas de los pokemons que conformarán nuestro árbol.
+        
+        
+class  ArbolNombre ():
+    def __init__(self, pokemons ):
+        self.Nodos = []
+        self.pokemons = pokemons
     
+    def inicializarPokemon(self):
+        for i in range(0, len(self.pokemons)):
+            pokemon = Pokemon()
+            pokemon.nombre = self.pokemons.iloc[i,1]
+            pokemon.numero = self.pokemons.iloc[i,0]
+            pokemon.tipo1 = self.pokemons.iloc[i,2]
+            pokemon.tipo2 = self.pokemons.iloc[i,3]
+            pokemon.debilidad = self.pokemons.iloc[i,4]
+            self.Nodos.append(pokemon)
+
+    def ObtenerNombre(self):
+        Nombre = []
+        for i in range (0, len(self.Nodos)):
+             Nombre.append(self.Nodos[i].nombre) 
+        return Nombre
+
+class ArbolTipo():
+    def __init__(self, pokemons ):
+        self.Nodos = []
+        self.pokemons = pokemons
+
+    def inicializarPokemon(self):
+        for i in range(0, len(self.pokemons)):
+            pokemon = Pokemon()
+            pokemon.nombre = self.pokemons.iloc[i,1]
+            pokemon.numero = self.pokemons.iloc[i,0]
+            pokemon.tipo1 = self.pokemons.iloc[i,2]
+            pokemon.tipo2 = self.pokemons.iloc[i,3]
+            pokemon.debilidad = self.pokemons.iloc[i,4]
+            self.Nodos.append(pokemon)
+            
+
+        
+class ArbolNumero():
+    def __init__(self, pokemons ):
+        self.Nodos = []
+        self.pokemons = pokemons
+
+    def inicializarPokemon(self):
+        for i in range(0, len(self.pokemons)):    
+            pokemon = Pokemon()
+            pokemon.nombre = self.pokemons.iloc[i,1]
+            pokemon.numero = self.pokemons.iloc[i,0]
+            pokemon.tipo1 = self.pokemons.iloc[i,2]
+            pokemon.tipo2 = self.pokemons.iloc[i,3]
+            pokemon.debilidad = self.pokemons.iloc[i,4]
+            self.Nodos.append(pokemon)
+
+arbol = ArbolNombre(d_pokemon)
+arbol.inicializarPokemon()
+print(arbol.ObtenerNombre())
